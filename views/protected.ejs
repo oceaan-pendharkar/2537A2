@@ -1,0 +1,26 @@
+<body>
+    <div class="container">
+        <%- include('templates/header', {x}) %>
+            <h1>Hello <%= x %>!</h1>
+            <!-- <% if (isAdmin) { %>
+                <h1> Only Admins can see this</h1>
+                <% } %> -->
+            <h2>Protected route: Members only!</h2>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm pt-5">
+                        <img src="magic1.jpeg" width="300px" margin="10px" />
+                    </div>
+                    <div class="col-sm pt-5">
+                        <img src="magic2.jpeg" width="300px" margin="10px" />
+                    </div>
+                    <div class="col-sm pt-5">
+                        <img src="magic3.jpeg" width="300px" margin="10px" />
+                    </div>
+                </div>
+            </div>
+            <!-- todo.ejs -->
+            <%- include('templates/footer') %>
+    </div>
+
+</body>

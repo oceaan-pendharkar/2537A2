@@ -1,0 +1,30 @@
+<%- include('templates/header') %>
+    <div class="container">
+        <h1 style="padding-bottom: 20px; text-align: center;">Admin Page</h1>
+        <!-- display list of all users -->
+        <h2 style="text-align: center;" class="pb-4"> List of Users </h2>
+        <ul class="d-flex flex-column align-items-center">
+            <% users.forEach(function(user) { %>
+                <li style="border: 2px solid grey; width: 115px;" class="mb-2">
+                    <div class="px-2">
+                        <%= user.username %> (<%= user.type %>)
+                                <% if (user.type=='admin' ) { %>
+                                    <form action="/demoteToUser" method="POST" style="padding-bottom: 30px;">
+                                        <input type="hidden" name="user" value="<%= user.username %>" />
+                                        <!-- <input type="submit" value="demote" /> -->
+                                        <button type="submit" class="btn btn-warning">Demote</button>
+                                    </form>
+                                    <% } %>
+                                        <% if (user.type=='user' ) { %>
+                                            <form action="/promoteToAdmin" method="POST" style="padding-bottom: 30px;">
+                                                <input type="hidden" name="user" value="<%= user.username %>" />
+                                                <!-- <input type="submit" value="promote" /> -->
+                                                <button type="submit" class="btn btn-info">Promote</button>
+                                            </form>
+                                            <% } %>
+                    </div>
+                </li>
+                <% }) %>
+        </ul>
+    </div>
+    <%- include('templates/footer') %>
